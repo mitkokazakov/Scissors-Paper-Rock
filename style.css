@@ -65,7 +65,7 @@ header{
 .game-wrapper{
     width: 700px;
     height: 400px;
-    border: 2px solid white;
+    /* border: 2px solid white; */
     display: flex;
     justify-content: center;
     align-items: center;
@@ -121,13 +121,15 @@ header{
 }
 
 .computer-choice{
-    width: 180px;
-    height: 180px;
-    position: absolute;
-    background-color: aquamarine;
-    border-radius: 50%;
+    opacity: 0;
+    border: 20px solid orange;
+    /* scale: 1.7; */
+    transform: translateX(73%);
+}
+
+.computer-choice.selected{
+    opacity: 1;
     scale: 1.7;
-    transform: translateX(100px);
 }
 
 .three-choices-game{
@@ -135,7 +137,14 @@ header{
     position: relative;
 }
 
-.scissors, .paper, .rock{
+.three-choices-game-bg.hidden{
+    transition: all 1000ms ease-in-out;
+    opacity: 0;
+}
+
+
+
+.scissors, .paper, .rock, .computer-choice{
     width: 180px;
     height: 180px;
     display: flex;
@@ -149,36 +158,51 @@ header{
 
 .scissors{
     border: 20px solid orange;
-    top: -90px;
-    left: -90px;
+    top: 0;
+    left: 0;
+    transform: translateX(-50%) translateY(-50%);
 }
 
 .scissors.selected{
-    transform: translateX(-90px) translateY(130px) scale(1.7);
+    transform: scale(1.7) translateX(-50%) translateY(19%) ;
 }
 
-.paper.selected{
-    transform: translateX(-400px) translateY(130px) scale(1.7);
+.scissors.hidden{
+    opacity: 0;
 }
 
-.rock.selected{
-    transform: translateX(-340px) translateY(-130px) scale(1.7);
-}
 
 .paper{
     border: 20px solid red;
-    top: -90px;
-    right: -90px;
+    top: 0;
+    right: 0;
+    transform: translateX(50%) translateY(-50%);
+}
+
+.paper.selected{
+    transform: scale(1.7) translateX(-94%) translateY(19%) ;
+}
+
+.paper.hidden{
+    opacity: 0;
 }
 
 .rock{
     border: 20px solid blue;
-    bottom: -90px;
+    bottom: 0;
     left: 50%;
-    transform: translateX(-50%);
+    transform: translateX(-50%) translateY(50%);
 }
 
-.scissors img, .paper img, .rock img{
+.rock.selected{
+    transform: scale(1.7) translateX(-102%) translateY(-14%) ;
+}
+
+.rock.hidden{
+    opacity: 0;
+}
+
+.scissors img, .paper img, .rock img, .computer-choice img{
     width: 60%;
     height: 60%;
 }
