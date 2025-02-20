@@ -13,6 +13,8 @@ let gameResult = document.querySelector('.game-result');
 
 let gameResultWrapper = document.querySelector('.game-result-wrapper');
 
+let playAgainBtn = document.querySelector('.play-again-btn');
+
 scissors.addEventListener('click', () => {
     scissors.classList.add('selected')
     paper.classList.add('hidden');
@@ -49,3 +51,27 @@ rock.addEventListener('click', () => {
     gameResult.classList.add('selected')
     gameResultWrapper.classList.add('selected')
 })
+
+playAgainBtn.addEventListener('click', () => {
+    RemoveClasses(scissors);
+    RemoveClasses(paper);
+    RemoveClasses(rock);
+    RemoveClasses(threeChoicesBg);
+    RemoveClasses(computerChoice);
+    RemoveClasses(myChoiceText);
+    RemoveClasses(computerChoiceText);
+    RemoveClasses(gameResult);
+    RemoveClasses(gameResultWrapper);
+})
+
+function RemoveClasses(element){
+
+    if(element.classList.contains('hidden')){
+        element.classList.remove('hidden')
+    }
+
+    if(element.classList.contains('selected')){
+        element.classList.remove('selected')
+    }
+    
+}
