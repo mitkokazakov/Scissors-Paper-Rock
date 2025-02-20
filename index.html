@@ -1,54 +1,63 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Scissors Paper Rock</title>
-    <link rel="stylesheet" href="style.css">
-</head>
-<body>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
     <header>
-        <div class="game-name">
-            <img src="./images/logo.svg" alt="Logo">
-        </div>
+      <div class="game-name">
+        <img src="./images/logo.svg" alt="Logo" />
+      </div>
 
-        <div class="score-container">
-            <p class="score-text">SCORE</p>
-            <p class="score">12</p>
-        </div>
+      <div class="score-container">
+        <p class="score-text">SCORE</p>
+        <p class="score">12</p>
+      </div>
     </header>
 
     <div class="game-wrapper">
+      <section class="game-result-wrapper">
+        <p class="my-choice-text">YOU PICKED</p>
+        <p class="computer-choice-text">THE HOUSE PICKED</p>
+        <div class="game-result">
+          <p>YOU WIN</p>
+          <button class="play-again-btn">PLAY AGAIN</button>
+        </div>
 
-        <section class="game-result-wrapper">
-            <p class="my-choice-text">YOU PICKED</p>
-            <p class="computer-choice-text">THE HOUSE PICKED</p>
-            <div class="game-result">
-                <p>YOU WIN</p>
-                <button class="play-again-btn">PLAY AGAIN</button>
-            </div>
-            <div class="computer-choice">
-                <img src="./images/icon-rock.svg" alt="Scissors">
-            </div>
-        </section>
+        <div class="dark-bg-circle"></div>
 
-        <section class="three-choices-game">
-            <img class="three-choices-game-bg" src="./images/bg-triangle.svg" alt="">
+        <div class="computer-choice">
+          <section class="winner-circles"></section>
+          <section class="winner-circles2"></section>
+          <section class="winner-circles3"></section>
+          <img src="./images/icon-rock.svg" alt="Scissors" />
+        </div>
+      </section>
 
-            <div class="scissors">
-                <img src="./images/icon-scissors.svg" alt="Scissors">
-            </div>
+      <section class="three-choices-game">
+        <img
+          class="three-choices-game-bg"
+          src="./images/bg-triangle.svg"
+          alt=""
+        />
 
-            <div class="paper">
-                <img src="./images/icon-scissors.svg" alt="Paper">
-            </div>
+        <div class="scissors">
+          <img src="./images/icon-scissors.svg" alt="Scissors" />
+        </div>
 
-            <div class="rock">
-                <img src="./images/icon-scissors.svg" alt="Rock">
-            </div>
-        </section>
+        <div class="paper">
+          <img src="./images/icon-scissors.svg" alt="Paper" />
+        </div>
+
+        <div class="rock">
+          <img src="./images/icon-scissors.svg" alt="Rock" />
+        </div>
+      </section>
     </div>
 
     <script src="app.js"></script>
-</body>
+  </body>
 </html>

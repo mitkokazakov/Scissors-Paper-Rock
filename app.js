@@ -15,6 +15,8 @@ let gameResultWrapper = document.querySelector('.game-result-wrapper');
 
 let playAgainBtn = document.querySelector('.play-again-btn');
 
+let darkBgCircle = document.querySelector('.dark-bg-circle');
+
 scissors.addEventListener('click', () => {
     scissors.classList.add('selected')
     paper.classList.add('hidden');
@@ -25,6 +27,7 @@ scissors.addEventListener('click', () => {
     computerChoiceText.classList.add('selected')
     gameResult.classList.add('selected')
     gameResultWrapper.classList.add('selected')
+    darkBgCircle.classList.add('selected');
 })
 
 paper.addEventListener('click', () => {
