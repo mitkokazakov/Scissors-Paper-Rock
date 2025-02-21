@@ -23,18 +23,20 @@
 }
 
 body {
-  height: 100vh;
+  min-height: 100vh;
   background-image: radial-gradient(at top, var(--background-gradient-1), var(--background-gradient-2));
   font-family: "Barlow Semi Condensed", serif;
-  overflow: hidden;
+  /* overflow: hidden; */
 }
 
 .container{
   position: relative;
   max-width: 700px;
   margin: 50px auto 0 auto;
+  /* height: 100%; */
 }
 
+/* Header */
 header {
   display: flex;
   justify-content: space-between;
@@ -77,6 +79,7 @@ header {
   color: hsl(229, 25%, 31%);
 }
 
+/* Game */
 .game{
   position: relative;
   display: grid;
@@ -86,6 +89,18 @@ header {
   "rock rock";
   margin-top: 50px;
   height: 450px;
+}
+
+.game::after{
+  content: '';
+  position: absolute;
+  background: url('./images/bg-triangle.svg') no-repeat;
+  width: 100%;
+  height: 100%;
+  left: 28%;
+  top: 23%;
+  z-index: -2;
+  /* transform: translateX(-50%) translateY(-50%); */
 }
 
 .choice-wrapper{
@@ -145,6 +160,95 @@ header {
 
 .choice-wrapper[data-choice="rock"]{
   grid-area: rock;
+}
+
+/* Results */
+
+.results{
+  display: grid;
+  column-gap: 180px;
+  place-items: center;
+  align-items: start;
+  grid-template-columns: repeat(2, 1fr);
+  grid-template-areas: "user-text computer-text"
+  "user-result computer-result";
+  max-width: 1000px;
+  width: 700px;
+  height: 450px;
+  border: 1px solid white;
+  position: absolute;
+  bottom: 0;
+  /* z-index: -2; */
+  transition: opacity 1000ms ease-in-out;
+}
+
+
+
+
+.text{
+  color: white;
+
+}
+
+.text.user-text{
+  grid-area: user-text;
+}
+
+.text.computer-text{
+  grid-area: computer-text;
+}
+
+
+.result{
+  /* width: 130px;
+  height: 130px;
+  border-radius: 50%; */
+  scale: 1.3;
+  
+  
+}
+
+.result.user-result{
+  grid-area: user-result;
+}
+
+
+.result.computer-result{
+  grid-area: computer-result;
+  /* background-color: var(--background-gradient-1); */
+}
+
+.final-result{
+  position: absolute;
+  align-self: center;
+  text-align: center;
+  z-index: 10;
+}
+
+.final-result-text{
+  font-size: 50px;
+  color: white;
+  margin-bottom: 10px;
+}
+
+.play-again{
+  width: 100%;
+  padding: 15px 30px;
+  outline: none;
+  border: none;
+  background-color: #fff;
+  border-radius: 5px;
+  color: var(--dark-text);
+  font-size: 16px;
+  letter-spacing: 3px;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.hidden{
+  opacity: 0;
+  pointer-events: none;
+  z-index: -2;
 }
 
 
