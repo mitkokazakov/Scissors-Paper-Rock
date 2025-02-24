@@ -272,27 +272,27 @@ header {
 }
 
 .shown{
-  animation: displayComputerChoice 1s 3s forwards;
+  animation: displayComputerChoice 1s 1s forwards;
 }
 
 .show-final{
-  animation: displayComputerChoice 1s 4s forwards;
+  animation: displayComputerChoice 1s 2s forwards;
 }
 
 .left{
-  animation: moveToLeft 1s 4s forwards;
+  animation: moveToLeft 1s 2s forwards;
 }
 
 .left-text{
-  animation: moveTextToLeft 1s 4s forwards;
+  animation: moveTextToLeft 1s 2s forwards;
 }
 
 .right{
-  animation: moveToRight 1s 4s forwards;
+  animation: moveToRight 1s 2s forwards;
 }
 
 .right-text{
-  animation: moveTextToRight 1s 4s forwards;
+  animation: moveTextToRight 1s 2s forwards;
 }
 
 .computer-choice-wrapper{
