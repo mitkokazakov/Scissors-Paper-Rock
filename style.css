@@ -32,7 +32,8 @@ body {
 .container{
   position: relative;
   max-width: 700px;
-  margin: 50px auto 0 auto;
+  margin: 0 auto 0 auto;
+  padding-top: 50px;
   /* height: 100%; */
 }
 
@@ -184,10 +185,9 @@ header {
 
 
 
-
 .text{
   color: white;
-
+  position: relative;
 }
 
 .text.user-text{
@@ -208,21 +208,40 @@ header {
   
 }
 
+.dark-circle{
+  position: absolute;
+  width: 140px;
+  height: 140px;
+  border-radius: 50%;
+  background-color: var(--background-gradient-2);
+  z-index: -5;
+}
+
 .result.user-result{
   grid-area: user-result;
 }
 
 
 .result.computer-result{
+  position: relative;
   grid-area: computer-result;
-  /* background-color: var(--background-gradient-1); */
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
+/* .result.computer-result .choice{
+  opacity: 0;
+  
+} */
+
 .final-result{
+  opacity: 0;
   position: absolute;
   align-self: center;
   text-align: center;
   z-index: 10;
+  grid-area: play-again;
 }
 
 .final-result-text{
@@ -249,6 +268,79 @@ header {
   opacity: 0;
   pointer-events: none;
   z-index: -2;
+}
+
+.shown{
+  animation: displayComputerChoice 1s 3s forwards;
+}
+
+.show-final{
+  animation: displayComputerChoice 1s 4s forwards;
+}
+
+.left{
+  animation: moveToLeft 1s 4s forwards;
+}
+
+.left-text{
+  animation: moveTextToLeft 1s 4s forwards;
+}
+
+.right{
+  animation: moveToRight 1s 4s forwards;
+}
+
+.right-text{
+  animation: moveTextToRight 1s 4s forwards;
+}
+
+.computer-choice-wrapper{
+  opacity: 0;
+}
+
+@keyframes displayComputerChoice{
+  0%{
+    opacity: 0;
+  }
+  100%{
+    opacity: 1;
+  }
+}
+
+@keyframes moveToLeft {
+  0%{
+    transform: translateX(0%);
+  }
+  100%{
+    transform: translateX(-50%);
+  }
+}
+
+@keyframes moveTextToLeft {
+  0%{
+    transform: translateX(0%);
+  }
+  100%{
+    transform: translateX(-100%);
+  }
+}
+
+@keyframes moveToRight {
+  0%{
+    transform: translateX(0%);
+  }
+  100%{
+    transform: translateX(50%);
+  }
+}
+
+@keyframes moveTextToRight {
+  0%{
+    transform: translateX(0%);
+  }
+  100%{
+    transform: translateX(60%);
+  }
 }
 
 
