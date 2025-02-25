@@ -90,7 +90,7 @@ header {
   "rock rock";
   margin-top: 50px;
   height: 450px;
-  transition: opacity 200ms ease-in-out;
+  transition: opacity 100ms ease-in-out;
 }
 
 .game::after{
@@ -177,11 +177,10 @@ header {
   max-width: 1000px;
   width: 700px;
   height: 450px;
-  border: 1px solid white;
   position: absolute;
   bottom: 0;
   /* z-index: -2; */
-  transition: opacity 200ms ease-in-out;
+  transition: opacity 100ms ease-in-out;
 }
 
 
@@ -249,6 +248,7 @@ header {
   font-size: 50px;
   color: white;
   margin-bottom: 10px;
+  letter-spacing: 3px;
 }
 
 .play-again{
@@ -260,9 +260,13 @@ header {
   border-radius: 5px;
   color: var(--dark-text);
   font-size: 16px;
-  letter-spacing: 3px;
+  letter-spacing: 2px;
   font-weight: bold;
   cursor: pointer;
+}
+
+.play-again:hover{
+  color: var(--rock-2);
 }
 
 .hidden{
