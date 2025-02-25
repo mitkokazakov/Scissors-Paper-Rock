@@ -5,31 +5,35 @@ let gameContainer = document.querySelector(".game");
 let resultsContainer = document.querySelector(".results");
 let computerResult = document.querySelector(".result.computer-result .choice");
 let darkCircle = document.querySelector(".dark-circle");
-
 let computerChoiceWrapper = document.querySelector(".computer-choice-wrapper");
-
 let userResult = document.querySelector(".result.user-result");
 let userResultText = document.querySelector(".text.user-text");
-
 let computerContainerToMove = document.querySelector(".result.computer-result");
 let computerText = document.querySelector(".text.computer-text");
-
 let finalResult = document.querySelector(".final-result");
 let finalResultText = document.querySelector(".final-result-text");
-
 let playAgainBtn = document.querySelector(".play-again");
+let scoreText = document.querySelector('.score');
+
+let storedScore = localStorage.getItem('score');
+
+
+InitialScoreLoad(storedScore);
 
 paper.addEventListener("click", () => {
   AddUserChoice("paper");
-  ToggleClasses("paper");
+  AddComputerChoice('paper');
+  ToggleClasses();
 });
 rock.addEventListener("click", () => {
   AddUserChoice("rock");
-  ToggleClasses("rock");
+  AddComputerChoice('rock');
+  ToggleClasses();
 });
 scissors.addEventListener("click", () => {
   AddUserChoice("scissors");
-  ToggleClasses("scissors");
+  AddComputerChoice('scissors');
+  ToggleClasses();
 });
 
 playAgainBtn.addEventListener("click", ToggleClasses);
@@ -49,8 +53,8 @@ let choices = [
   },
 ];
 
-function ToggleClasses(userChoice) {
-  AddComputerChoice(userChoice);
+function ToggleClasses() {
+  //AddComputerChoice(userChoice);
   gameContainer.classList.toggle("hidden");
   resultsContainer.classList.toggle("hidden");
   computerChoiceWrapper.classList.toggle("shown");
@@ -91,4 +95,41 @@ function CheckWhoIsWinner(userChoice, computerChoice) {
   
 
   finalResultText.textContent = winner;
+
+  HandleScore(winner)
+}
+
+function HandleScore(winner){
+
+  let storedScore = localStorage.getItem('score');
+
+  let score = storedScore == null ? 0 : Number(storedScore);
+
+  let points = 0;
+
+  if(winner == 'YOU LOSE'){
+    
+    points = -1;
+  }else if(winner == 'YOU WIN'){
+    
+    points = 1;
+  }
+
+  score += points;
+
+  console.log(score);
+  
+  localStorage.setItem('score', score.toString());
+
+  setTimeout(() => {
+    scoreText.textContent = score;
+  },2000)
+}
+
+function InitialScoreLoad(score){
+
+  console.log('initial');
+  
+  let currentScore = score == null ? 0 : Number(score);
+  scoreText.textContent = currentScore;
 }
