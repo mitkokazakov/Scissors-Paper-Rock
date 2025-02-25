@@ -14,6 +14,10 @@ let finalResult = document.querySelector(".final-result");
 let finalResultText = document.querySelector(".final-result-text");
 let playAgainBtn = document.querySelector(".play-again");
 let scoreText = document.querySelector('.score');
+let rulesBtn = document.querySelector('.rules-btn');
+let modalContainer = document.querySelector('.modal-container')
+let modal = document.querySelector('.modal')
+let closeBtn = document.querySelector('.close-btn')
 
 let storedScore = localStorage.getItem('score');
 
@@ -37,6 +41,16 @@ scissors.addEventListener("click", () => {
 });
 
 playAgainBtn.addEventListener("click", ToggleClasses);
+
+rulesBtn.addEventListener('click', () => {
+  modalContainer.classList.toggle('show-modal')
+  modal.classList.toggle('move-modal')
+})
+
+closeBtn.addEventListener('click', () => {
+  modalContainer.classList.toggle('show-modal')
+  modal.classList.toggle('move-modal')
+})
 
 let choices = [
   {
