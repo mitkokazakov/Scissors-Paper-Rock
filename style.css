@@ -1,6 +1,6 @@
 @import url("https://fonts.googleapis.com/css2?family=Barlow+Semi+Condensed:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
 
-:root{
+:root {
   --background-gradient-1: hsl(214, 47%, 23%);
   --background-gradient-2: hsl(237, 49%, 15%);
   --header-border: hsl(217, 16%, 45%);
@@ -24,12 +24,16 @@
 
 body {
   min-height: 100vh;
-  background-image: radial-gradient(at top, var(--background-gradient-1), var(--background-gradient-2));
+  background-image: radial-gradient(
+    at top,
+    var(--background-gradient-1),
+    var(--background-gradient-2)
+  );
   font-family: "Barlow Semi Condensed", serif;
   /* overflow: hidden; */
 }
 
-.container{
+.container {
   position: relative;
   max-width: 700px;
   margin: 0 auto 0 auto;
@@ -44,8 +48,7 @@ header {
   align-items: center;
   padding: 20px 30px;
   border: 3px solid hsl(217, 16%, 45%);
-  max-width: 1366px;
-  width: 700px;
+  max-width: 700px;
   border-radius: 20px;
 }
 
@@ -81,22 +84,23 @@ header {
 }
 
 /* Game */
-.game{
+.game {
   position: relative;
   display: grid;
   place-items: center;
   grid-template-columns: repeat(2, 1fr);
-  grid-template-areas: "paper scissors"
-  "rock rock";
+  grid-template-areas:
+    "paper scissors"
+    "rock rock";
   margin-top: 50px;
   height: 450px;
   transition: opacity 100ms ease-in-out;
 }
 
-.game::after{
-  content: '';
+.game::after {
+  content: "";
   position: absolute;
-  background: url('./images/bg-triangle.svg') no-repeat;
+  background: url("./images/bg-triangle.svg") no-repeat;
   width: 100%;
   height: 100%;
   left: 28%;
@@ -105,13 +109,13 @@ header {
   /* transform: translateX(-50%) translateY(-50%); */
 }
 
-.choice-wrapper{
+.choice-wrapper {
   outline: none;
   border: none;
   cursor: pointer;
 }
 
-.choice{
+.choice {
   width: 160px;
   height: 160px;
   border-radius: 50%;
@@ -122,58 +126,57 @@ header {
   box-shadow: inset 0 7px 0 var(--shadow-light);
 }
 
-.choice::before{
-  content: '';
+.choice::before {
+  content: "";
   position: absolute;
   width: 130%;
   height: 130%;
   border-radius: 50%;
   z-index: -1;
- 
 }
 
-
-.choice.paper::before{
+.choice.paper::before {
   background: linear-gradient(to bottom, var(--paper-1), var(--paper-2));
-  box-shadow:  0 8px 0 var(--shadow-med),0 8px 0 var(--paper-2);
+  box-shadow: 0 8px 0 var(--shadow-med), 0 8px 0 var(--paper-2);
 }
 
-.choice.scissors::before{
+.choice.scissors::before {
   background: linear-gradient(to bottom, var(--scissors-1), var(--scissors-2));
-  box-shadow:  0 8px 0 var(--shadow-med),0 8px 0 var(--scissors-2);
+  box-shadow: 0 8px 0 var(--shadow-med), 0 8px 0 var(--scissors-2);
 }
 
-.choice.rock::before{
+.choice.rock::before {
   background: linear-gradient(to bottom, var(--rock-1), var(--rock-2));
-  box-shadow:  0 8px 0 var(--shadow-med),0 8px 0 var(--rock-2);
+  box-shadow: 0 8px 0 var(--shadow-med), 0 8px 0 var(--rock-2);
 }
 
-.choice img{
+.choice img {
   scale: 1.4;
 }
 
-.choice-wrapper[data-choice="paper"]{
+.choice-wrapper[data-choice="paper"] {
   grid-area: paper;
 }
 
-.choice-wrapper[data-choice="scissors"]{
+.choice-wrapper[data-choice="scissors"] {
   grid-area: scissors;
 }
 
-.choice-wrapper[data-choice="rock"]{
+.choice-wrapper[data-choice="rock"] {
   grid-area: rock;
 }
 
 /* Results */
 
-.results{
+.results {
   display: grid;
   column-gap: 180px;
   place-items: center;
   align-items: start;
   grid-template-columns: repeat(2, 1fr);
-  grid-template-areas: "user-text computer-text"
-  "user-result computer-result";
+  grid-template-areas:
+    "user-text computer-text"
+    "user-result computer-result";
   max-width: 1000px;
   width: 700px;
   height: 450px;
@@ -183,32 +186,27 @@ header {
   transition: opacity 100ms ease-in-out;
 }
 
-
-
-.text{
+.text {
   color: white;
   position: relative;
 }
 
-.text.user-text{
+.text.user-text {
   grid-area: user-text;
 }
 
-.text.computer-text{
+.text.computer-text {
   grid-area: computer-text;
 }
 
-
-.result{
+.result {
   /* width: 130px;
   height: 130px;
   border-radius: 50%; */
   scale: 1.3;
-  
-  
 }
 
-.dark-circle{
+.dark-circle {
   position: absolute;
   width: 140px;
   height: 140px;
@@ -218,12 +216,11 @@ header {
   z-index: -5;
 }
 
-.result.user-result{
+.result.user-result {
   grid-area: user-result;
 }
 
-
-.result.computer-result{
+.result.computer-result {
   position: relative;
   grid-area: computer-result;
   display: flex;
@@ -236,7 +233,7 @@ header {
   
 } */
 
-.final-result{
+.final-result {
   opacity: 0;
   position: absolute;
   align-self: center;
@@ -245,14 +242,14 @@ header {
   grid-area: play-again;
 }
 
-.final-result-text{
+.final-result-text {
   font-size: 50px;
   color: white;
   margin-bottom: 10px;
   letter-spacing: 3px;
 }
 
-.play-again{
+.play-again {
   width: 100%;
   padding: 15px 30px;
   outline: none;
@@ -266,11 +263,11 @@ header {
   cursor: pointer;
 }
 
-.play-again:hover{
+.play-again:hover {
   color: var(--rock-2);
 }
 
-.rules-btn{
+.rules-btn {
   outline: none;
   border: 1px solid white;
   background-color: transparent;
@@ -285,7 +282,7 @@ header {
   cursor: pointer;
 }
 
-.modal-container{
+.modal-container {
   width: 100%;
   height: 100vh;
   position: absolute;
@@ -296,7 +293,7 @@ header {
   overflow: hidden;
 }
 
-.modal-shadow{
+.modal-shadow {
   width: 100%;
   height: 100%;
   background-color: black;
@@ -307,7 +304,7 @@ header {
   left: 0;
 }
 
-.modal{
+.modal {
   /* width: 400px; */
   /* height: 500px; */
   background-color: white;
@@ -322,196 +319,267 @@ header {
   gap: 50px;
 }
 
-.modal-header{
+.modal-header {
   display: flex;
   justify-content: space-between;
   align-items: center;
 }
 
-.modal-header h1{
+.modal-header h1 {
   font-size: 36px;
   letter-spacing: 3px;
 }
 
-.close-btn{
+.close-btn {
   cursor: pointer;
 }
 
-.modal-image-wrapper{
+.modal-image-wrapper {
   padding-inline: 20px;
 }
 
-.hidden{
+.hidden {
   opacity: 0;
   pointer-events: none;
   z-index: -2;
 }
 
-.shown{
+.shown {
   animation: displayComputerChoice 1s 1s forwards;
 }
 
-.show-final{
+.show-final {
   animation: displayComputerChoice 1s 2s forwards;
 }
 
-.left{
+.left {
   animation: moveToLeft 1s 2s forwards;
 }
 
-.left-text{
+.left-text {
   animation: moveTextToLeft 1s 2s forwards;
 }
 
-.right{
+.right {
   animation: moveToRight 1s 2s forwards;
 }
 
-.right-text{
+.right-text {
   animation: moveTextToRight 1s 2s forwards;
 }
 
-.computer-choice-wrapper{
+.computer-choice-wrapper {
   opacity: 0;
 }
 
-.show-modal{
+.show-modal {
   animation: showModal 500ms forwards;
 }
 
-.move-modal{
+.move-modal {
   animation: moveModal 500ms forwards;
 }
 
-@keyframes displayComputerChoice{
-  0%{
+@keyframes displayComputerChoice {
+  0% {
     opacity: 0;
   }
-  100%{
+  100% {
     opacity: 1;
   }
 }
 
 @keyframes moveToLeft {
-  0%{
+  0% {
     transform: translateX(0%);
   }
-  100%{
+  100% {
     transform: translateX(-50%);
   }
 }
 
 @keyframes moveTextToLeft {
-  0%{
+  0% {
     transform: translateX(0%);
   }
-  100%{
+  100% {
     transform: translateX(-100%);
   }
 }
 
 @keyframes moveToRight {
-  0%{
+  0% {
     transform: translateX(0%);
   }
-  100%{
+  100% {
     transform: translateX(50%);
   }
 }
 
 @keyframes moveTextToRight {
-  0%{
+  0% {
     transform: translateX(0%);
   }
-  100%{
+  100% {
     transform: translateX(60%);
   }
 }
 
 @keyframes showModal {
-  0%{
+  0% {
     opacity: 0;
     z-index: -20;
   }
-  100%{
+  100% {
     opacity: 1;
     z-index: 15;
   }
 }
 
 @keyframes moveModal {
-  0%{
+  0% {
     transform: translateX(-50%) translateY(150%);
   }
-  100%{
+  100% {
     transform: translateX(-50%) translateY(-50%);
   }
 }
 
-
-
 @media screen and (max-width: 1024px) {
-  
-  body{
+  body {
     height: 200px;
     overflow-x: hidden;
   }
-  .results{
+  .results {
     column-gap: 70px;
     padding-inline: 20px;
   }
 
-  .result .choice{
+  .result .choice {
     width: 130px;
     height: 130px;
   }
 
-  .final-result-text{
+  .final-result-text {
     font-size: 36px;
   }
 
-  .play-again{
-
+  .play-again {
   }
 
   @keyframes moveTextToLeft {
-    0%{
+    0% {
       transform: translateX(0%);
     }
-    100%{
+    100% {
       transform: translateX(-76%);
     }
   }
 
   @keyframes moveTextToRight {
-    0%{
+    0% {
       transform: translateX(0%);
     }
-    100%{
+    100% {
       transform: translateX(48%);
     }
   }
 }
 
 @media screen and (max-width: 768px) {
-  body{
+  body {
     width: 100%;
     overflow-x: auto;
     overflow-y: hidden;
   }
 
-  .game::after{
+  header {
+    width: 350px;
+    margin: 0 auto;
+    border-radius: 10px;
+    padding: 15px 10px 10px 15px;
+  }
+
+  .game-name {
+    width: 100px;
+  }
+
+  .game-name img {
+    width: 100%;
+    height: 100%;
+  }
+
+  .score-container {
+    padding: 10px 20px;
+    border-radius: 10px;
+  }
+
+  .score-text {
+    font-size: 12px;
+  }
+
+  .score {
+    font-size: 36px;
+  }
+
+  .game::after {
     top: 24%;
     left: 13%;
   }
 
-  .choice{
+  .choice {
     width: 120px;
     height: 120px;
   }
 
-  .choice img{
+  .choice img {
     scale: 1;
   }
-}
 
+  .results {
+    width: 100%;
+    margin: 0 auto;
+    grid-template-areas:
+      "user-result computer-result"
+      "user-text computer-text";
+    padding: 0;
+    align-items: center;
+    column-gap: 10px;
+  }
+
+  .result{
+    scale: 1;
+  }
+
+  .dark-circle{
+    width: 80px;
+    height: 80px;
+  }
+
+  .text{
+    align-self: start;
+    font-size: 18px;
+    letter-spacing: 2px;
+  }
+
+  .result .choice {
+    width: 120px;
+    height: 120px;
+  }
+
+  .left {
+    animation: none;
+  }
+
+  .left-text {
+    animation: none;
+  }
+
+  .right {
+    animation: none;
+  }
+
+  .right-text {
+    animation: none;
+  }
+}
