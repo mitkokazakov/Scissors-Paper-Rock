@@ -214,6 +214,7 @@ header {
   height: 140px;
   border-radius: 50%;
   background-color: var(--background-gradient-2);
+  opacity: 0.4;
   z-index: -5;
 }
 
@@ -299,7 +300,7 @@ header {
   width: 100%;
   height: 100%;
   background-color: black;
-  opacity: 0.3;
+  opacity: 0.7;
   pointer-events: none;
   position: absolute;
   top: 0;
@@ -447,4 +448,70 @@ header {
   }
 }
 
+
+
+@media screen and (max-width: 1024px) {
+  
+  body{
+    height: 200px;
+    overflow-x: hidden;
+  }
+  .results{
+    column-gap: 70px;
+    padding-inline: 20px;
+  }
+
+  .result .choice{
+    width: 130px;
+    height: 130px;
+  }
+
+  .final-result-text{
+    font-size: 36px;
+  }
+
+  .play-again{
+
+  }
+
+  @keyframes moveTextToLeft {
+    0%{
+      transform: translateX(0%);
+    }
+    100%{
+      transform: translateX(-76%);
+    }
+  }
+
+  @keyframes moveTextToRight {
+    0%{
+      transform: translateX(0%);
+    }
+    100%{
+      transform: translateX(48%);
+    }
+  }
+}
+
+@media screen and (max-width: 768px) {
+  body{
+    width: 100%;
+    overflow-x: auto;
+    overflow-y: hidden;
+  }
+
+  .game::after{
+    top: 24%;
+    left: 13%;
+  }
+
+  .choice{
+    width: 120px;
+    height: 120px;
+  }
+
+  .choice img{
+    scale: 1;
+  }
+}
 
