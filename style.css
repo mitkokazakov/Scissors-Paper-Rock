@@ -488,8 +488,9 @@ header {
 
 @media screen and (max-width: 768px) {
   body {
+    min-height: 100vh;
     width: 100%;
-    overflow-x: auto;
+    overflow-x: hidden;
     overflow-y: hidden;
   }
 
@@ -522,9 +523,21 @@ header {
     font-size: 36px;
   }
 
+  .game {
+    max-width: 500px;
+    margin: 50px auto 0px auto;
+  }
+
   .game::after {
-    top: 24%;
-    left: 13%;
+    /* top: 24%;
+    left: 18%; */
+
+    top: 0;
+    left: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-position: center;
   }
 
   .choice {
@@ -547,16 +560,16 @@ header {
     column-gap: 10px;
   }
 
-  .result{
+  .result {
     scale: 1;
   }
 
-  .dark-circle{
+  .dark-circle {
     width: 80px;
     height: 80px;
   }
 
-  .text{
+  .text {
     align-self: start;
     font-size: 18px;
     letter-spacing: 2px;
@@ -565,6 +578,21 @@ header {
   .result .choice {
     width: 120px;
     height: 120px;
+  }
+
+  .modal {
+    width: 100%;
+    height: 100%;
+    background-color: white;
+    border-radius: 0px;
+    top: 0;
+    left: 0;
+    position: absolute;
+    transform: translateX(0%) translateY(0%);
+    padding: 30px;
+    display: flex;
+    flex-direction: column;
+    gap: 50px;
   }
 
   .left {
@@ -582,4 +610,15 @@ header {
   .right-text {
     animation: none;
   }
+
+
+  @keyframes moveModal {
+    0% {
+      transform: translateX(0%) translateY(150%);
+    }
+    100% {
+      transform: translateX(0%) translateY(0%);
+    }
+  }
+  
 }
