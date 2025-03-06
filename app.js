@@ -18,6 +18,7 @@ let rulesBtn = document.querySelector('.rules-btn');
 let modalContainer = document.querySelector('.modal-container')
 let modal = document.querySelector('.modal')
 let closeBtn = document.querySelector('.close-btn')
+let responsiveCloseBtn = document.querySelector('.responsive-close')
 
 let storedScore = localStorage.getItem('score');
 
@@ -48,6 +49,11 @@ rulesBtn.addEventListener('click', () => {
 })
 
 closeBtn.addEventListener('click', () => {
+  modalContainer.classList.toggle('show-modal')
+  modal.classList.toggle('move-modal')
+})
+
+responsiveCloseBtn.addEventListener('click', () => {
   modalContainer.classList.toggle('show-modal')
   modal.classList.toggle('move-modal')
 })

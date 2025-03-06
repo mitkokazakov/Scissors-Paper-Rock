@@ -338,6 +338,10 @@ header {
   padding-inline: 20px;
 }
 
+.responsive-close{
+  display: none;
+}
+
 .hidden {
   opacity: 0;
   pointer-events: none;
@@ -589,10 +593,21 @@ header {
     left: 0;
     position: absolute;
     transform: translateX(0%) translateY(0%);
-    padding: 30px;
+    padding: 100px 30px;
     display: flex;
     flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
     gap: 50px;
+  }
+
+  .modal-header img{
+    display: none;
+  }
+
+  .responsive-close{
+    display: block;
+    scale: 1.5;
   }
 
   .left {

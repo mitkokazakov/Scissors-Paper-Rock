@@ -7,13 +7,12 @@
     <link rel="stylesheet" href="style.css" />
   </head>
   <body>
-    
     <div class="container">
       <header>
         <div class="game-name">
           <img src="./images/logo.svg" alt="Logo" />
         </div>
-  
+
         <div class="score-container">
           <p class="score-text">SCORE</p>
           <p class="score">0</p>
@@ -21,25 +20,23 @@
       </header>
 
       <section class="game">
-
         <div class="choice-wrapper" data-choice="paper">
           <section class="choice paper">
-            <img src="./images/icon-paper.svg" alt="" srcset="">
+            <img src="./images/icon-paper.svg" alt="" srcset="" />
           </section>
         </div>
 
         <div class="choice-wrapper" data-choice="scissors">
           <section class="choice scissors">
-            <img src="./images/icon-scissors.svg" alt="" srcset="">
+            <img src="./images/icon-scissors.svg" alt="" srcset="" />
           </section>
         </div>
 
         <div class="choice-wrapper" data-choice="rock">
           <section class="choice rock">
-            <img src="./images/icon-rock.svg" alt="" srcset="">
+            <img src="./images/icon-rock.svg" alt="" srcset="" />
           </section>
         </div>
-
       </section>
 
       <section class="results hidden">
@@ -57,10 +54,7 @@
         </section>
 
         <div class="result computer-result">
-
-          <section class="dark-circle">
-
-          </section>
+          <section class="dark-circle"></section>
 
           <div class="computer-choice-wrapper">
             <!-- <section class="choice paper">
@@ -69,28 +63,37 @@
           </div>
         </div>
       </section>
-
     </div>
 
-    <button class="rules-btn">RULES</button> 
+    <button class="rules-btn">RULES</button>
 
-     <section class="modal-container">
-      <div class="modal-shadow">
-        
-      </div>
+    <section class="modal-container">
+      <div class="modal-shadow"></div>
 
       <div class="modal">
         <section class="modal-header">
           <h1>RULES</h1>
-          <img class="close-btn" src="./images/icon-close.svg" alt="close image">
+          <img
+            class="close-btn"
+            src="./images/icon-close.svg"
+            alt="close image"
+          />
         </section>
 
         <div class="modal-image-wrapper">
-          <img src="./images/image-rules.svg" alt="rules image">
+          <img src="./images/image-rules.svg" alt="rules image" />
+        </div>
+
+        <div class="responsive-close">
+          <img
+            class="close-btn"
+            src="./images/icon-close.svg"
+            alt="close image"
+          />
         </div>
       </div>
     </section>
-    
+
     <script src="app.js"></script>
   </body>
 </html>
