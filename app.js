@@ -13,50 +13,51 @@ let computerText = document.querySelector(".text.computer-text");
 let finalResult = document.querySelector(".final-result");
 let finalResultText = document.querySelector(".final-result-text");
 let playAgainBtn = document.querySelector(".play-again");
-let scoreText = document.querySelector('.score');
-let rulesBtn = document.querySelector('.rules-btn');
-let modalContainer = document.querySelector('.modal-container')
-let modal = document.querySelector('.modal')
-let closeBtn = document.querySelector('.close-btn')
-let responsiveCloseBtn = document.querySelector('.responsive-close')
+let scoreText = document.querySelector(".score");
+let rulesBtn = document.querySelector(".rules-btn");
+let modalContainer = document.querySelector(".modal-container");
+let modal = document.querySelector(".modal");
+let closeBtn = document.querySelector(".close-btn");
+let responsiveCloseBtn = document.querySelector(".responsive-close");
 
-let storedScore = localStorage.getItem('score');
 
+
+let storedScore = localStorage.getItem("score");
 
 InitialScoreLoad(storedScore);
 
 paper.addEventListener("click", () => {
   AddUserChoice("paper");
-  AddComputerChoice('paper');
+  AddComputerChoice("paper");
   ToggleClasses();
 });
 rock.addEventListener("click", () => {
   AddUserChoice("rock");
-  AddComputerChoice('rock');
+  AddComputerChoice("rock");
   ToggleClasses();
 });
 scissors.addEventListener("click", () => {
   AddUserChoice("scissors");
-  AddComputerChoice('scissors');
+  AddComputerChoice("scissors");
   ToggleClasses();
 });
 
 playAgainBtn.addEventListener("click", ToggleClasses);
 
-rulesBtn.addEventListener('click', () => {
-  modalContainer.classList.toggle('show-modal')
-  modal.classList.toggle('move-modal')
-})
+rulesBtn.addEventListener("click", () => {
+  modalContainer.classList.toggle("show-modal");
+  modal.classList.toggle("move-modal");
+});
 
-closeBtn.addEventListener('click', () => {
-  modalContainer.classList.toggle('show-modal')
-  modal.classList.toggle('move-modal')
-})
+closeBtn.addEventListener("click", () => {
+  modalContainer.classList.toggle("show-modal");
+  modal.classList.toggle("move-modal");
+});
 
-responsiveCloseBtn.addEventListener('click', () => {
-  modalContainer.classList.toggle('show-modal')
-  modal.classList.toggle('move-modal')
-})
+responsiveCloseBtn.addEventListener("click", () => {
+  modalContainer.classList.toggle("show-modal");
+  modal.classList.toggle("move-modal");
+});
 
 let choices = [
   {
@@ -86,9 +87,19 @@ function ToggleClasses() {
 }
 
 function AddUserChoice(choice) {
-  userResult.innerHTML = `<section class="choice ${choice}">
+  userResult.innerHTML = `
+          <section class="choice ${choice}">
             <img src="./images/icon-${choice}.svg" alt="" srcset="">
-          </section>`;
+          </section>
+          <div class="winner-circles-inner user-circle hidden">
+          
+          </div>
+          <div class="winner-circles-midd user-circle hidden">
+          
+          </div>
+          <div class="winner-circles-outer user-circle hidden">
+          
+          </div>`;
 }
 
 function AddComputerChoice(userChoice) {
@@ -98,13 +109,21 @@ function AddComputerChoice(userChoice) {
 
   computerChoiceWrapper.innerHTML = `<section class="choice ${curentChoice.name}">
               <img src="./images/icon-${curentChoice.name}.svg" alt="" srcset="">
-            </section>`;
+            </section>
+            <div class="winner-circles-inner pc-circle hidden">
+          
+          </div>
+          <div class="winner-circles-midd pc-circle hidden">
+          
+          </div>
+          <div class="winner-circles-outer pc-circle hidden">
+          
+          </div>`;
 
   CheckWhoIsWinner(userChoice, curentChoice);
 }
 
 function CheckWhoIsWinner(userChoice, computerChoice) {
-
   let winner = "";
 
   winner = userChoice == computerChoice.beats ? "YOU LOSE" : "YOU WIN";
@@ -112,44 +131,62 @@ function CheckWhoIsWinner(userChoice, computerChoice) {
   winner = userChoice == computerChoice.name ? "DRAW" : winner;
 
   console.log(winner);
-  
 
   finalResultText.textContent = winner;
 
-  HandleScore(winner)
+  HandleScore(winner);
+
+  ApplyWinnerCircles(winner);
 }
 
-function HandleScore(winner){
-
-  let storedScore = localStorage.getItem('score');
+function HandleScore(winner) {
+  let storedScore = localStorage.getItem("score");
 
   let score = storedScore == null ? 0 : Number(storedScore);
 
   let points = 0;
 
-  if(winner == 'YOU LOSE'){
-    
+  if (winner == "YOU LOSE") {
     points = -1;
-  }else if(winner == 'YOU WIN'){
-    
+  } else if (winner == "YOU WIN") {
     points = 1;
   }
 
   score += points;
 
   console.log(score);
-  
-  localStorage.setItem('score', score.toString());
+
+  localStorage.setItem("score", score.toString());
 
   setTimeout(() => {
     scoreText.textContent = score;
-  },2000)
+  }, 2000);
 }
 
-function InitialScoreLoad(score){
+function InitialScoreLoad(score) {
+  console.log("initial");
 
-  console.log('initial');
-  
   let currentScore = score == null ? 0 : Number(score);
   scoreText.textContent = currentScore;
+}
+
+function ApplyWinnerCircles(score){
+
+  if(score == "YOU WIN"){
+    let userWinnerCircles = document.querySelectorAll('.user-circle');
+    for (const element of userWinnerCircles) {
+      element.classList.toggle('hidden')
+      
+    }
+    
+  }
+  else if(score == "YOU LOSE"){
+    let pcWinnerCircles = document.querySelectorAll('.pc-circle')
+
+    for (const element of pcWinnerCircles) {
+      element.classList.toggle('hidden')
+      
+    }
+  }
+
 }

@@ -216,8 +216,39 @@ header {
   z-index: -5;
 }
 
+.winner-circles-inner, .winner-circles-midd, .winner-circles-outer{
+  border-radius: 50%;
+  background-color: white;
+  position: absolute;
+  transition: all 500ms ease-in-out;
+}
+
+.winner-circles-inner{
+  width: 280px;
+  height: 280px;
+  z-index: -20;
+  opacity: 0.06;
+}
+
+.winner-circles-midd{
+  width: 350px;
+  height: 350px;
+  z-index: -21;
+  opacity: 0.07;
+}
+
+.winner-circles-outer{
+  width: 450px;
+  height: 450px;
+  z-index: -22;
+  opacity: 0.08;
+}
+
 .result.user-result {
   grid-area: user-result;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .result.computer-result {
@@ -374,6 +405,9 @@ header {
 
 .computer-choice-wrapper {
   opacity: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .show-modal {
@@ -492,7 +526,7 @@ header {
 
 @media screen and (max-width: 768px) {
   body {
-    min-height: 100vh;
+    max-height: 100vh;
     width: 100%;
     overflow-x: hidden;
     overflow-y: hidden;
@@ -566,6 +600,11 @@ header {
 
   .result {
     scale: 1;
+  }
+
+  .winner-circles-inner{
+    width: 250px;
+    height: 250px;
   }
 
   .final-result{
