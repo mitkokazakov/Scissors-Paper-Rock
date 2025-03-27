@@ -174,19 +174,23 @@ function ApplyWinnerCircles(score){
 
   if(score == "YOU WIN"){
     let userWinnerCircles = document.querySelectorAll('.user-circle');
-    for (const element of userWinnerCircles) {
-      element.classList.toggle('hidden')
-      
-    }
+    setTimeout(() => {
+      for (const element of userWinnerCircles) {
+        element.classList.toggle('hidden')
+        
+      }
+    }, 3000)
     
   }
   else if(score == "YOU LOSE"){
     let pcWinnerCircles = document.querySelectorAll('.pc-circle')
 
-    for (const element of pcWinnerCircles) {
-      element.classList.toggle('hidden')
-      
-    }
+    setTimeout(() => {
+      for (const element of pcWinnerCircles) {
+        element.classList.toggle('hidden')
+        
+      }
+    },3000)
   }
 
 }
