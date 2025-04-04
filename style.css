@@ -29,16 +29,20 @@ body {
     var(--background-gradient-1),
     var(--background-gradient-2)
   );
+  background-repeat: no-repeat;
   font-family: "Barlow Semi Condensed", serif;
   overflow: hidden;
+  position: relative;
 }
 
 .container {
+  height: 100vh;
   position: relative;
   max-width: 700px;
   margin: 0 auto 0 auto;
   padding-top: 50px;
-  /* height: 100vh; */
+  height: 100vh;
+  /* overflow-y: hidden; */
 }
 
 /* Header */
@@ -181,9 +185,11 @@ header {
   width: 700px;
   height: 450px;
   position: absolute;
-  bottom: 0;
+  top: 50%;
+  transform: translateY(-50%);
   /* z-index: -2; */
   transition: opacity 100ms ease-in-out;
+  /* overflow: hidden; */
 }
 
 .text {
@@ -538,6 +544,9 @@ header {
     padding: 15px 10px 10px 15px;
   }
 
+  .container{
+    overflow-y: hidden;
+  }
   .game-name {
     width: 100px;
   }
