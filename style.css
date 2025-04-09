@@ -489,6 +489,13 @@ header {
   }
 }
 
+@media screen and (max-width: 1366px) {
+  
+  .results{
+    top: 63%;
+  }
+}
+
 @media screen and (max-width: 1024px) {
   body {
     /* height: 200px; */
