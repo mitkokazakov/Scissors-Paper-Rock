@@ -45,7 +45,7 @@ body {
   padding-top: 50px;
   display: flex;
   flex-direction: column;
-  justify-content: center;
+  justify-content: start;
   align-items: center;
   /* gap: 100px; */
   overflow-y: hidden;
