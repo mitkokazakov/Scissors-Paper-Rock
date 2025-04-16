@@ -12,6 +12,10 @@
   --paper-2: hsl(230, 89%, 65%);
   --rock-1: hsl(349, 71%, 52%);
   --rock-2: hsl(349, 70%, 56%);
+  --spock-1: hsl(189, 59%, 53%);
+  --spock-2: hsl(189, 58%, 57%);
+  --lizard-1: hsl(261, 73%, 60%);
+  --lizard-2: hsl(261, 72%, 63%);
   --shadow-light: #00000026;
   --shadow-med: #0000004d;
 }
@@ -123,6 +127,30 @@ header {
   z-index: -2;
 }
 
+.game-2 {
+  margin-top: 50px;
+  max-width: 700px;
+  width: 700px;
+  height: 450px;
+  position: relative;
+  display: flex;
+}
+
+.game-2::after {
+  content: "";
+  position: absolute;
+  background: url("./images/bg-pentagon.svg") no-repeat;
+  background-position: center;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  /* left: 28%;
+  top: 23%; */
+  z-index: -2;
+}
+
 .choice-wrapper {
   outline: none;
   border: none;
@@ -138,6 +166,11 @@ header {
   place-items: center;
   position: relative;
   box-shadow: inset 0 7px 0 var(--shadow-light);
+}
+
+.choice-2 {
+  width: 120px;
+  height: 120px;
 }
 
 .choice::before {
@@ -164,8 +197,53 @@ header {
   box-shadow: 0 8px 0 var(--shadow-med), 0 8px 0 var(--rock-2);
 }
 
+.choice.spock::before {
+  background: linear-gradient(to bottom, var(--spock-1), var(--spock-2));
+  box-shadow: 0 8px 0 var(--shadow-med), 0 8px 0 var(--spock-2);
+}
+
+.choice.lizard::before {
+  background: linear-gradient(to bottom, var(--lizard-1), var(--lizard-2));
+  box-shadow: 0 8px 0 var(--shadow-med), 0 8px 0 var(--lizard-2);
+}
+
+.paper-2{
+  top: 30%;
+  right: 20%;
+  position: absolute;
+}
+
+.scissors-2{
+  position: absolute;
+  top: 3%;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.rock-2{
+  position: absolute;
+  bottom: 1%;
+  right: 25%;
+}
+
+.spock-2{
+  position: absolute;
+  top: 30%;
+  left: 20%;
+}
+
+.lizard-2{
+  position: absolute;
+  bottom: 1%;
+  left: 25%;
+}
+
 .choice img {
   scale: 1.4;
+}
+
+.choice-2 img{
+  scale: 1.1;
 }
 
 .choice-wrapper[data-choice="paper"] {
@@ -316,7 +394,8 @@ header {
   color: var(--rock-2);
 }
 
-.rules-btn {
+.rules-btn,
+.mode-btn {
   outline: none;
   border: 1px solid white;
   background-color: transparent;
@@ -326,9 +405,18 @@ header {
   font-weight: bold;
   letter-spacing: 2px;
   position: absolute;
+
+  cursor: pointer;
+}
+
+.rules-btn {
   bottom: 5%;
   right: 5%;
-  cursor: pointer;
+}
+
+.mode-btn {
+  bottom: 5%;
+  left: 5%;
 }
 
 .modal-container {
@@ -395,6 +483,10 @@ header {
   opacity: 0;
   pointer-events: none;
   z-index: -2;
+}
+
+.hide {
+  display: none;
 }
 
 .shown {

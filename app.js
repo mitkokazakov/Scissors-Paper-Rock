@@ -2,6 +2,7 @@ let paper = document.querySelector(".choice.paper");
 let rock = document.querySelector(".choice.rock");
 let scissors = document.querySelector(".choice.scissors");
 let gameContainer = document.querySelector(".game");
+let game2Container = document.querySelector(".game-2");
 let resultsContainer = document.querySelector(".results");
 let computerResult = document.querySelector(".result.computer-result .choice");
 let darkCircle = document.querySelector(".dark-circle");
@@ -15,6 +16,7 @@ let finalResultText = document.querySelector(".final-result-text");
 let playAgainBtn = document.querySelector(".play-again");
 let scoreText = document.querySelector(".score");
 let rulesBtn = document.querySelector(".rules-btn");
+let modeBtn = document.querySelector(".mode-btn");
 let modalContainer = document.querySelector(".modal-container");
 let modal = document.querySelector(".modal");
 let closeBtn = document.querySelector(".close-btn");
@@ -48,6 +50,13 @@ rulesBtn.addEventListener("click", () => {
   modalContainer.classList.toggle("show-modal");
   modal.classList.toggle("move-modal");
 });
+
+modeBtn.addEventListener("click", () => {
+  game2Container.classList.toggle('hide')
+  gameContainer.classList.toggle('hide')
+  console.log('mode');
+  
+})
 
 closeBtn.addEventListener("click", () => {
   modalContainer.classList.toggle("show-modal");
