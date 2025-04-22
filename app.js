@@ -1,6 +1,11 @@
 let paper = document.querySelector(".choice.paper");
 let rock = document.querySelector(".choice.rock");
 let scissors = document.querySelector(".choice.scissors");
+let paper2 = document.querySelector(".choice-wrapper.paper-2");
+let scissors2 = document.querySelector(".choice-wrapper.scissors-2");
+let rock2 = document.querySelector(".choice-wrapper.rock-2");
+let spock2 = document.querySelector(".choice-wrapper.spock-2");
+let lizard2 = document.querySelector(".choice-wrapper.lizard-2");
 let gameContainer = document.querySelector(".game");
 let game2Container = document.querySelector(".game-2");
 let resultsContainer = document.querySelector(".results");
@@ -33,15 +38,48 @@ paper.addEventListener("click", () => {
   AddComputerChoice("paper");
   ToggleClasses();
 });
+paper2.addEventListener("click", () => {
+  AddUserChoice("paper");
+  AddComputerChoice("paper");
+  ToggleClasses();
+  game2Container.classList.toggle("hide")
+});
 rock.addEventListener("click", () => {
   AddUserChoice("rock");
   AddComputerChoice("rock");
   ToggleClasses();
 });
+rock2.addEventListener("click", () => {
+  AddUserChoice("rock");
+  AddComputerChoice("rock");
+  ToggleClasses();
+  //game2Container.classList.toggle("hide")
+});
 scissors.addEventListener("click", () => {
   AddUserChoice("scissors");
   AddComputerChoice("scissors");
   ToggleClasses();
+});
+
+scissors2.addEventListener("click", () => {
+  AddUserChoice("scissors");
+  AddComputerChoice("scissors");
+  ToggleClasses();
+  //game2Container.classList.toggle("hide")
+});
+
+spock2.addEventListener("click", () => {
+  AddUserChoice("spock");
+  AddComputerChoice("spock");
+  ToggleClasses();
+  //game2Container.classList.toggle("hide")
+});
+
+lizard2.addEventListener("click", () => {
+  AddUserChoice("lizard");
+  AddComputerChoice("lizard");
+  ToggleClasses();
+  //game2Container.classList.toggle("hide")
 });
 
 playAgainBtn.addEventListener("click", ToggleClasses);
@@ -71,16 +109,24 @@ responsiveCloseBtn.addEventListener("click", () => {
 let choices = [
   {
     name: "paper",
-    beats: "rock",
+    beats: ["rock", "spock"],
   },
   {
     name: "rock",
-    beats: "scissors",
+    beats: ["scissors","lizard"],
   },
   {
     name: "scissors",
-    beats: "paper",
+    beats: ["paper", "lizard"],
   },
+  {
+    name: "spock",
+    beats: ["scissors", "rock"]
+  },
+  {
+    name: "lizard",
+    beats: ["spock", "paper"]
+  }
 ];
 
 function ToggleClasses() {
@@ -93,6 +139,17 @@ function ToggleClasses() {
   computerContainerToMove.classList.toggle("right");
   computerText.classList.toggle("right-text");
   finalResult.classList.toggle("show-final");
+
+  if(game2Container.classList.contains('hide')){
+    game2Container.classList.remove('hide')
+    console.log('true');
+    
+  }
+  else{
+    game2Container.classList.add('hide')
+    console.log('false');
+  }
+  
 }
 
 function AddUserChoice(choice) {
@@ -135,7 +192,8 @@ function AddComputerChoice(userChoice) {
 function CheckWhoIsWinner(userChoice, computerChoice) {
   let winner = "";
 
-  winner = userChoice == computerChoice.beats ? "YOU LOSE" : "YOU WIN";
+  //winner = userChoice == computerChoice.beats ? "YOU LOSE" : "YOU WIN";
+  winner = computerChoice.beats.includes(userChoice) ? "YOU LOSE" : "YOU WIN";
 
   winner = userChoice == computerChoice.name ? "DRAW" : winner;
 
