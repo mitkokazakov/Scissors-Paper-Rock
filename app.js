@@ -44,7 +44,6 @@ paper2.addEventListener("click", () => {
   AddUserChoice("paper");
   AddComputerChoice("paper");
   ToggleClasses();
-  game2Container.classList.toggle("hide")
 });
 rock.addEventListener("click", () => {
   AddUserChoice("rock");
@@ -155,14 +154,18 @@ function ToggleClasses() {
   computerText.classList.toggle("right-text");
   finalResult.classList.toggle("show-final");
 
-  if(game2Container.classList.contains('hide')){
-    game2Container.classList.remove('hide')
-    console.log('true');
+  // if(game2Container.classList.contains('hide')){
+  //   game2Container.classList.remove('hide')
+  //   console.log('true');
     
-  }
-  else{
-    game2Container.classList.add('hide')
-    console.log('false');
+  // }
+  // else{
+  //   game2Container.classList.add('hide')
+  //   console.log('false');
+  // }
+
+  if(currentMode == 5){
+    game2Container.classList.toggle('hide');
   }
   
 }
@@ -184,7 +187,13 @@ function AddUserChoice(choice) {
 }
 
 function AddComputerChoice(userChoice) {
-  let randomChoice = Math.round(Math.random() * 2);
+  let randomChoice = 0;
+
+  if(currentMode == 3){
+    randomChoice = Math.round(Math.random() * 2);
+  }else{
+    randomChoice = Math.round(Math.random() * 5);
+  }
 
   let curentChoice = choices[randomChoice];
 
