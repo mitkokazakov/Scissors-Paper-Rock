@@ -31,6 +31,8 @@ let responsiveCloseBtn = document.querySelector(".responsive-close");
 
 let storedScore = localStorage.getItem("score");
 
+let currentMode = 3;
+
 InitialScoreLoad(storedScore);
 
 paper.addEventListener("click", () => {
@@ -87,13 +89,26 @@ playAgainBtn.addEventListener("click", ToggleClasses);
 rulesBtn.addEventListener("click", () => {
   modalContainer.classList.toggle("show-modal");
   modal.classList.toggle("move-modal");
+
+  let rulesImage = document.querySelector('.rules-image')
+  if(currentMode == 5){
+    rulesImage.src = './images/image-rules-bonus.svg'
+  }
+  else{
+    rulesImage.src = './images/image-rules.svg'
+  }
 });
 
 modeBtn.addEventListener("click", () => {
   game2Container.classList.toggle('hide')
   gameContainer.classList.toggle('hide')
-  console.log('mode');
-  
+
+  if(currentMode == 3){
+    currentMode = 5;
+  }
+  else{
+    currentMode = 3;
+  }
 })
 
 closeBtn.addEventListener("click", () => {

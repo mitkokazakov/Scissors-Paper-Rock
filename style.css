@@ -686,6 +686,12 @@ header {
     /* margin: 50px auto 0px auto; */
   }
 
+  .game-2{
+    max-width: 400px;
+    height: 400px;
+    margin-top: 30px;
+  }
+
   .game::after {
     top: 24%;
     left: 11%;
@@ -701,6 +707,42 @@ header {
   .choice {
     width: 110px;
     height: 110px;
+  }
+
+  .choice-2{
+    width: 100px;
+    height: 100px;
+  }
+
+  .paper-2{
+    top: 30%;
+    right: 5%;
+    position: absolute;
+  }
+  
+  .scissors-2{
+    position: absolute;
+    top: 3%;
+    left: 50%;
+    transform: translateX(-50%);
+  }
+  
+  .rock-2{
+    position: absolute;
+    bottom: 1%;
+    right: 10%;
+  }
+  
+  .spock-2{
+    position: absolute;
+    top: 30%;
+    left: 5%;
+  }
+  
+  .lizard-2{
+    position: absolute;
+    bottom: 1%;
+    left: 10%;
   }
 
   .choice img {
@@ -770,8 +812,12 @@ header {
   }
 
   .rules-btn {
-    right: 50%;
-    transform: translateX(50%);
+    right: 15%;
+    /* transform: translateX(50%); */
+  }
+
+  .mode-btn{
+    left: 15%;
   }
 
   .modal-header img {
@@ -814,6 +860,37 @@ header {
     overflow-y: auto;
   }
 
+  .game-2{
+    width: 350px;
+    height: 350px;
+  }
+
+  .paper-2{
+    top: 30%;
+    right: 5%;
+  }
+  
+  .scissors-2{
+    top: 0%;
+    left: 50%;
+    transform: translateX(-50%);
+  }
+  
+  .rock-2{
+    bottom: -2%;
+    right: 10%;
+  }
+  
+  .spock-2{
+    top: 30%;
+    left: 5%;
+  }
+  
+  .lizard-2{
+    bottom: -2%;
+    left: 10%;
+  }
+
   .results {
     padding-top: 50px;
   }
@@ -824,5 +901,13 @@ header {
 
   .final-result-text {
     font-size: 50px;
+  }
+
+  .rules-btn{
+    right: 10%;
+  }
+
+  .mode-btn{
+    left: 10%;
   }
 }
