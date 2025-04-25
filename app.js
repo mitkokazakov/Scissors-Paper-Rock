@@ -27,11 +27,11 @@ let modal = document.querySelector(".modal");
 let closeBtn = document.querySelector(".close-btn");
 let responsiveCloseBtn = document.querySelector(".responsive-close");
 
-
-
 let storedScore = localStorage.getItem("score");
 
 let currentMode = 3;
+
+let modeBtnActive = true;
 
 InitialScoreLoad(storedScore);
 
@@ -39,76 +39,84 @@ paper.addEventListener("click", () => {
   AddUserChoice("paper");
   AddComputerChoice("paper");
   ToggleClasses();
+  modeBtnActive = false;
 });
 paper2.addEventListener("click", () => {
   AddUserChoice("paper");
   AddComputerChoice("paper");
   ToggleClasses();
+  modeBtnActive = false;
 });
 rock.addEventListener("click", () => {
   AddUserChoice("rock");
   AddComputerChoice("rock");
   ToggleClasses();
+  modeBtnActive = false;
 });
 rock2.addEventListener("click", () => {
   AddUserChoice("rock");
   AddComputerChoice("rock");
   ToggleClasses();
-  //game2Container.classList.toggle("hide")
+  modeBtnActive = false;
 });
 scissors.addEventListener("click", () => {
   AddUserChoice("scissors");
   AddComputerChoice("scissors");
   ToggleClasses();
+  modeBtnActive = false;
 });
 
 scissors2.addEventListener("click", () => {
   AddUserChoice("scissors");
   AddComputerChoice("scissors");
   ToggleClasses();
-  //game2Container.classList.toggle("hide")
+  modeBtnActive = false;
 });
 
 spock2.addEventListener("click", () => {
   AddUserChoice("spock");
   AddComputerChoice("spock");
   ToggleClasses();
-  //game2Container.classList.toggle("hide")
+  modeBtnActive = false;
 });
 
 lizard2.addEventListener("click", () => {
   AddUserChoice("lizard");
   AddComputerChoice("lizard");
   ToggleClasses();
-  //game2Container.classList.toggle("hide")
+  modeBtnActive = false;
 });
 
-playAgainBtn.addEventListener("click", ToggleClasses);
+playAgainBtn.addEventListener("click", () => {
+  ToggleClasses();
+  modeBtnActive = true;
+});
 
 rulesBtn.addEventListener("click", () => {
   modalContainer.classList.toggle("show-modal");
   modal.classList.toggle("move-modal");
 
-  let rulesImage = document.querySelector('.rules-image')
-  if(currentMode == 5){
-    rulesImage.src = './images/image-rules-bonus.svg'
-  }
-  else{
-    rulesImage.src = './images/image-rules.svg'
+  let rulesImage = document.querySelector(".rules-image");
+  if (currentMode == 5) {
+    rulesImage.src = "./images/image-rules-bonus.svg";
+  } else {
+    rulesImage.src = "./images/image-rules.svg";
   }
 });
 
 modeBtn.addEventListener("click", () => {
-  game2Container.classList.toggle('hide')
-  gameContainer.classList.toggle('hide')
+  if (modeBtnActive) {
+    game2Container.classList.toggle("hide");
+    gameContainer.classList.toggle("hide");
+    //resultsContainer.classList.toggle("hidden");
 
-  if(currentMode == 3){
-    currentMode = 5;
+    if (currentMode == 3) {
+      currentMode = 5;
+    } else {
+      currentMode = 3;
+    }
   }
-  else{
-    currentMode = 3;
-  }
-})
+});
 
 closeBtn.addEventListener("click", () => {
   modalContainer.classList.toggle("show-modal");
@@ -127,7 +135,7 @@ let choices = [
   },
   {
     name: "rock",
-    beats: ["scissors","lizard"],
+    beats: ["scissors", "lizard"],
   },
   {
     name: "scissors",
@@ -135,12 +143,12 @@ let choices = [
   },
   {
     name: "spock",
-    beats: ["scissors", "rock"]
+    beats: ["scissors", "rock"],
   },
   {
     name: "lizard",
-    beats: ["spock", "paper"]
-  }
+    beats: ["spock", "paper"],
+  },
 ];
 
 function ToggleClasses() {
@@ -157,17 +165,16 @@ function ToggleClasses() {
   // if(game2Container.classList.contains('hide')){
   //   game2Container.classList.remove('hide')
   //   console.log('true');
-    
+
   // }
   // else{
   //   game2Container.classList.add('hide')
   //   console.log('false');
   // }
 
-  if(currentMode == 5){
-    game2Container.classList.toggle('hide');
+  if (currentMode == 5) {
+    game2Container.classList.toggle("hide");
   }
-  
 }
 
 function AddUserChoice(choice) {
@@ -189,9 +196,9 @@ function AddUserChoice(choice) {
 function AddComputerChoice(userChoice) {
   let randomChoice = 0;
 
-  if(currentMode == 3){
+  if (currentMode == 3) {
     randomChoice = Math.round(Math.random() * 2);
-  }else{
+  } else {
     randomChoice = Math.round(Math.random() * 5);
   }
 
@@ -261,27 +268,21 @@ function InitialScoreLoad(score) {
   scoreText.textContent = currentScore;
 }
 
-function ApplyWinnerCircles(score){
-
-  if(score == "YOU WIN"){
-    let userWinnerCircles = document.querySelectorAll('.user-circle');
+function ApplyWinnerCircles(score) {
+  if (score == "YOU WIN") {
+    let userWinnerCircles = document.querySelectorAll(".user-circle");
     setTimeout(() => {
       for (const element of userWinnerCircles) {
-        element.classList.toggle('hidden')
-        
+        element.classList.toggle("hidden");
       }
-    }, 3000)
-    
-  }
-  else if(score == "YOU LOSE"){
-    let pcWinnerCircles = document.querySelectorAll('.pc-circle')
+    }, 3000);
+  } else if (score == "YOU LOSE") {
+    let pcWinnerCircles = document.querySelectorAll(".pc-circle");
 
     setTimeout(() => {
       for (const element of pcWinnerCircles) {
-        element.classList.toggle('hidden')
-        
+        element.classList.toggle("hidden");
       }
-    },3000)
+    }, 3000);
   }
-
 }
