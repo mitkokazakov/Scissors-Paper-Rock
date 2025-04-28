@@ -480,6 +480,7 @@ header {
 }
 
 .hidden {
+  /* display: none; */
   opacity: 0;
   pointer-events: none;
   z-index: -2;

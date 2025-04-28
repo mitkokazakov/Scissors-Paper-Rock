@@ -152,8 +152,16 @@ let choices = [
 ];
 
 function ToggleClasses() {
-  //AddComputerChoice(userChoice);
-  gameContainer.classList.toggle("hidden");
+
+  if (currentMode == 5) {
+    game2Container.classList.toggle("hide");
+    gameContainer.classList.toggle("hidden");
+    gameContainer.classList.toggle("hide");
+  }else{
+    gameContainer.classList.toggle("hidden");
+  }
+
+  
   resultsContainer.classList.toggle("hidden");
   computerChoiceWrapper.classList.toggle("shown");
   userResult.classList.toggle("left");
@@ -162,19 +170,8 @@ function ToggleClasses() {
   computerText.classList.toggle("right-text");
   finalResult.classList.toggle("show-final");
 
-  // if(game2Container.classList.contains('hide')){
-  //   game2Container.classList.remove('hide')
-  //   console.log('true');
 
-  // }
-  // else{
-  //   game2Container.classList.add('hide')
-  //   console.log('false');
-  // }
-
-  if (currentMode == 5) {
-    game2Container.classList.toggle("hide");
-  }
+  
 }
 
 function AddUserChoice(choice) {
